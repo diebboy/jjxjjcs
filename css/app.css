@@ -1,0 +1,329 @@
+/*
+  1. Base
+*/
+/*
+  2. Components
+*/
+div#amplitude-player {
+  background: #ffffff;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 900px;
+}
+
+div#amplitude-left {
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div#amplitude-left div#player-left-bottom {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px 10px;
+}
+
+div#amplitude-right {
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div#amplitude-right div.song {
+  cursor: pointer;
+  padding: 10px;
+}
+
+div#amplitude-right div.song div.song-now-playing-icon-container {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+div#amplitude-right div.song.amplitude-active-song-container div.song-now-playing-icon-container img.now-playing {
+  display: block;
+}
+
+div#amplitude-right div.song div.song-meta-data {
+  float: left;
+  width: calc( 100% - 110px);
+}
+
+div#amplitude-right div.song div.song-meta-data span.song-title {
+  color: #272726;
+  font-size: 16px;
+  display: block;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div#amplitude-right div.song div.song-meta-data span.song-artist {
+  color: #607D8B;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div#amplitude-right div.song span.song-duration {
+  width: 55px;
+  text-align: center;
+  line-height: 45px;
+  color: #607D8B;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+div#progress-container {
+  width: 100%;
+  position: relative;
+  height: 20px;
+  cursor: pointer;
+  /*input[type="range"]::-moz-range-track {
+      width: 100%;
+      height: 0px;
+      cursor: pointer;
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+      background: #000;
+      border-radius: 0px;
+      border: 0px solid #010101;
+   }*/
+}
+
+div#progress-container progress#song-played-progress {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  right: 0;
+  width: 100%;
+  z-index: 60;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 5px;
+  background: transparent;
+  border: none;
+  /* Needed for Firefox */
+}
+
+div#progress-container progress#song-played-progress[value]::-webkit-progress-bar {
+  background: none;
+  border-radius: 5px;
+}
+
+div#progress-container progress#song-played-progress[value]::-webkit-progress-value {
+  background-color: #e4dddb;
+  border-radius: 5px;
+}
+
+div#progress-container progress#song-played-progress::-moz-progress-bar {
+  background: none;
+  border-radius: 5px;
+  background-color: #e4dddb;
+  height: 5px;
+  margin-top: -2px;
+}
+
+div#progress-container progress#song-buffered-progress {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 5px;
+  background: transparent;
+  border: none;
+  background-color: #e4dddb;
+}
+
+div#progress-container progress#song-buffered-progress[value]::-webkit-progress-bar {
+  background-color: #826b60;
+  border-radius: 5px;
+}
+
+div#progress-container progress#song-buffered-progress[value]::-webkit-progress-value {
+  display: none;
+  background-color: #826b60;
+  border-radius: 5px;
+}
+
+div#progress-container progress::-ms-fill {
+  border: none;
+}
+
+div#progress-container input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 7.5px 0;
+  position: absolute;
+  z-index: 9999;
+  top: -7px;
+  height: 20px;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+div#progress-container input[type="range"]:focus {
+  outline: none;
+}
+
+div#progress-container input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0px;
+  cursor: pointer;
+  background: #826b60;
+  border-radius: 0px;
+  border: 0px solid #826b60;
+}
+
+div#progress-container input[type="range"]::-webkit-slider-thumb {
+  border: 1px solid #826b60;
+  height: 15px;
+  width: 15px;
+  border-radius: 16px;
+  background: #826b60;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7.5px;
+}
+
+div#control-container {
+  margin-top: 25px;
+}
+
+div#control-container div#central-control-container div#central-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div#control-container div#central-control-container div#central-controls div#previous {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: url("../img/prev.svg");
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  margin-right: -5px;
+}
+
+div#control-container div#central-control-container div#central-controls div#play-pause {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+div#control-container div#central-control-container div#central-controls div#play-pause.amplitude-paused {
+  background: url("../img/play.svg");
+}
+
+div#control-container div#central-control-container div#central-controls div#play-pause.amplitude-playing {
+  background: url("../img/pause.svg");
+}
+
+div#control-container div#central-control-container div#central-controls div#next {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: url("../img/next.svg");
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  margin-left: -5px;
+}
+
+div#time-container span.current-time {
+  color: #607D8B;
+  font-size: 14px;
+  font-weight: 700;
+  float: left;
+  width: 15%;
+  text-align: center;
+}
+
+div#time-container span.duration {
+  color: #607D8B;
+  font-size: 14px;
+  font-weight: 700;
+  float: left;
+  width: 15%;
+  text-align: center;
+}
+
+div#time-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+div#meta-container {
+  text-align: center;
+  margin-top: 5px;
+}
+
+div#meta-container span.song-name {
+  display: block;
+  color: #272726;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+  3. Layout
+*/
+body {
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  line-height: 1.5;
+}
+
+/*
+  4. Pages
+*/
+/*
+  5. Themes
+*/
+/*
+  6. Utils
+*/
+/*
+  7. Vendors
+*/
