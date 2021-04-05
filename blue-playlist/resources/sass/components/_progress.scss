@@ -1,0 +1,106 @@
+div#progress-container {
+   width: 100%;
+   position: relative;
+   height: 20px;
+   cursor: pointer;
+
+   progress#song-played-progress {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 8px;
+      right: 0;
+      width: 100%;
+      z-index: 60;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 5px;
+      background: transparent;
+      border: none; /* Needed for Firefox */
+   }
+
+   progress#song-played-progress[value]::-webkit-progress-bar {
+      background: none;
+      border-radius: 5px;
+   }
+
+   progress#song-played-progress[value]::-webkit-progress-value {
+      background-color: #e4dddb;
+      border-radius: 5px;
+   }
+
+   progress#song-played-progress::-moz-progress-bar {
+      background: none;
+      border-radius: 5px;
+      background-color: #e4dddb;
+      height: 5px;
+      margin-top: -2px;
+   }
+
+   progress#song-buffered-progress {
+      position: absolute;
+      left: 0;
+      top: 8px;
+      right: 0;
+      width: 100%;
+      z-index: 10;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 5px;
+      background: transparent;
+      border: none;
+      background-color: #e4dddb;
+   }
+
+   progress#song-buffered-progress[value]::-webkit-progress-bar {
+      background-color: #826b60;
+      border-radius: 5px;
+   }
+
+   progress#song-buffered-progress[value]::-webkit-progress-value {
+      display: none;
+      background-color: #826b60;
+      border-radius: 5px;
+   }
+
+   progress::-ms-fill {
+      border: none;
+   }
+   input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      margin: 7.5px 0;
+      position: absolute;
+      z-index: 9999;
+      top: -7px;
+      height: 20px;
+      cursor: pointer;
+      background-color: inherit;
+   }
+   input[type="range"]:focus {
+      outline: none;
+   }
+   input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 0px;
+      cursor: pointer;
+      background: #826b60;
+      border-radius: 0px;
+      border: 0px solid #826b60;
+   }
+   input[type="range"]::-webkit-slider-thumb {
+      border: 1px solid #826b60;
+      height: 15px;
+      width: 15px;
+      border-radius: 16px;
+      background: #826b60;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -7.5px;
+   }
+  
+  
